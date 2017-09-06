@@ -1,5 +1,5 @@
 <?php 
-namespace AhmedFathy\Helpers\Src\Files;
+namespace RamiAwadallah\Helpers\Src\Files;
 
 /**
 * 

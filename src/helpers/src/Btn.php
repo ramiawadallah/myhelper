@@ -1,6 +1,6 @@
 <?php
 
-namespace AhmedFathy\Helpers\Src;
+namespace RamiAwadallah\Helpers\Src;
 
 class Btn
 {

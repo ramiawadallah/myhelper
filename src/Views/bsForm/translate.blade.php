@@ -15,7 +15,7 @@
       <div role="tabpanel" class="tab-pane {{ $key == 0 ? 'active' : '' }}" id="page_lang_{{ $lang->code }}">
 
       <?php
-      $langForm = new \AhmedFathy\Helpers\Src\langForm($lang->id);
+      $langForm = new \RamiAwadallah\Helpers\Src\langForm($lang->id);
        call_user_func_array($callback, [$langForm,$lang->code]);
       ?>
       

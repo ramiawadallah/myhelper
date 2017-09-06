@@ -32,11 +32,11 @@ use Illuminate\Database\Eloquent\Relations\MorphToMany;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasManyThrough;
 use Illuminate\Database\ConnectionResolverInterface as Resolver;
-if (trait_exists('AhmedFathy\Helpers\Relation\RelationMethods')) 
+if (trait_exists('RamiAwadallah\Helpers\Relation\RelationMethods')) 
 {
     trait call_relation_helpers 
     {
-        use \AhmedFathy\Helpers\Relation\RelationMethods;
+        use \RamiAwadallah\Helpers\Relation\RelationMethods;
     }
 }else{
     trait call_relation_helpers{}

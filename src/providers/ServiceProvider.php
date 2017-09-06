@@ -1,6 +1,6 @@
 <?php
 
-namespace AhmedFathy\Helpers;
+namespace RamiAwadallah\Helpers;
 
 use Illuminate\Support\ServiceProvider as Provider;
 
@@ -42,7 +42,7 @@ class ServiceProvider extends Provider
         ], 'model');
 
         $this->publishes([
-        __DIR__.'/../publish/AhmedFathyHelpers.php' => app_path('Http/Variables/shareVariables.php')
+        __DIR__.'/../publish/RamiAwadallahHelpers.php' => app_path('Http/Variables/shareVariables.php')
         ], 'variables');
         
         

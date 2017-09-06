@@ -1,5 +1,5 @@
 <?php
-namespace AhmedFathy\Helpers\Relation;
+namespace RamiAwadallah\Helpers\Relation;
 trait LanguagesRelation{
 
 

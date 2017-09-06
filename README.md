@@ -5,19 +5,19 @@ composer require "ahmed-fathy/helpers":"@dev"
 
         Collective\Html\HtmlServiceProvider::class,
         DaveJamesMiller\Breadcrumbs\ServiceProvider::class,
-        AhmedFathy\Helpers\ServiceProvider::class,
+        RamiAwadallah\Helpers\ServiceProvider::class,
 
 
   config\app.php  --> aliases array
   
         'Form' => Collective\Html\FormFacade::class,
         'Html' => Collective\Html\HtmlFacade::class,
-        'Btn' => AhmedFathy\Helpers\Src\Btn::class,
-        'bsForm' => AhmedFathy\Helpers\Src\bsForm::class,
-        'langForm' => AhmedFathy\Helpers\Src\langForm::class,
-        'MyRoute' => AhmedFathy\Helpers\Src\Routes\MyRoute::class,
-        'Files' => AhmedFathy\Helpers\Src\Files\Files::class,
-        'Control' => AhmedFathy\Helpers\Src\Control::class,
+        'Btn' => RamiAwadallah\Helpers\Src\Btn::class,
+        'bsForm' => RamiAwadallah\Helpers\Src\bsForm::class,
+        'langForm' => RamiAwadallah\Helpers\Src\langForm::class,
+        'MyRoute' => RamiAwadallah\Helpers\Src\Routes\MyRoute::class,
+        'Files' => RamiAwadallah\Helpers\Src\Files\Files::class,
+        'Control' => RamiAwadallah\Helpers\Src\Control::class,
         'Breadcrumbs' => DaveJamesMiller\Breadcrumbs\Facade::class,
 
  publish vendor 
