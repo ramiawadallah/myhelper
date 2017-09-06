@@ -1,5 +1,4 @@
-composer require "ahmed-fathy/helpers":"@dev"
-   
+composer require "rami-awadallah/myhelpers":"@dev"
    
    config\app.php  --> providers array
 
