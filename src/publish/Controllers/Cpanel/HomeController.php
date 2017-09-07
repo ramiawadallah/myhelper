@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\User;
+
 
 class HomeController extends Controller
 {
@@ -18,7 +20,7 @@ class HomeController extends Controller
 
     public function index()
     {
-        return view(user('rule').'_rule.layout.home');
+    	$users = User::paginate(4);
+        return view(user('rule').'_rule.index',compact('users'));
     }
-   
 }

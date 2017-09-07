@@ -1,4 +1,4 @@
-@extends('layout.index')
+@extends('layouts.admin')
 @section('title') {{ trans('lang.settings') }}  @endsection
 @section('menu') {!! breadcrumbs('main_settings') !!}  @endsection
 @section('content')
