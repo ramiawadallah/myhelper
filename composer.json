@@ -29,7 +29,8 @@
             "src/helpers/src/Control.php",
             "src/helpers/src/langForm.php",
             "src/helpers/flash.php",
-            "src/helpers/functions.php"
+            "src/helpers/functions.php",
+            "src/helpers/helpers.php"
         ]
     }
 }
