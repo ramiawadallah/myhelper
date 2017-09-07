@@ -36,11 +36,11 @@ class ServiceProvider extends Provider
         ], 'controller');
 
         $this->publishes([
-        __DIR__.'/../publish/Template/' => app_path()
+        __DIR__.'/../publish/Template/' => app_path('Template')
         ], 'template');
 
         $this->publishes([
-        __DIR__.'/../publish/View/' => app_path()
+        __DIR__.'/../publish/View/' => app_path('View')
         ], 'view');
 
 
