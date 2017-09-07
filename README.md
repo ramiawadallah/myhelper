@@ -48,7 +48,7 @@ composer require "rami-awadallah/myhelpers":"@dev"
         'rule' => \App\Http\Middleware\Rules::class,
     ];
 
-   app/Http/routes.php
+        app/Http/routes.php
 
 
         MyRoute::shareVariables();
@@ -68,6 +68,9 @@ composer require "rami-awadallah/myhelpers":"@dev"
       		post('settings/lang/flug', 'Settings\LangController@updateFlug','lang.updateFlug');
       		post('settings/lang/delete', 'Settings\LangController@deleteLang','lang.deleteLang');
       	});
+
+        Auth::routes();
+
         ...
 
    database/seeds/DatabaseSeeder.php
