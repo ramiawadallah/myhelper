@@ -44,7 +44,7 @@ class ServiceProvider extends Provider
         ], 'view');
 
         $this->publishes([
-        __DIR__.'/../publish/helpers.php/' => app_path()
+        __DIR__.'/../publish/Helpers/' => app_path('Helpers')
         ], 'helpers');
 
         $this->publishes([
