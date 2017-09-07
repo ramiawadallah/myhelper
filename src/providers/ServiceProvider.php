@@ -43,7 +43,6 @@ class ServiceProvider extends Provider
         __DIR__.'/../publish/View/' => app_path('View')
         ], 'view');
 
-
         $this->publishes([
         __DIR__.'/../publish/Model.php' => base_path('vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php')
         ], 'model');
