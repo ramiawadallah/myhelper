@@ -11,12 +11,25 @@ class LangsTableSeeder extends Seeder
      */
     public function run()
     {
-       \Control::store(request(),'lang',[
-            'name' => 'العربية',
-            'code' => 'ar',
-            'flug' => 'sa.png',
-            'default' => 1
-            ]);
-        
+
+        DB::table('langs')->truncate();
+
+        DB::table('langs')->insert([
+            [ 
+                'name'      =>  'English',
+                'code'      =>  'en',
+                'flug'      =>  'gb.png',
+                'direction' =>  'ltr',
+                'default'   =>  1,
+                ],
+                [
+                'name'      =>  'Arabic',
+                'code'      =>  'ar',
+                'flug'      =>  'sa.png',
+                'direction' =>  'rtl',
+                'default'   =>  0,
+                ]      
+         ]);
+
     }
 }

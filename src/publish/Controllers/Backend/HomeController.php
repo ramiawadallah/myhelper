@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Cpanel;
+namespace App\Http\Controllers\Backend;
 
 use Illuminate\Http\Request;
 

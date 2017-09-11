@@ -48,28 +48,37 @@ composer require "rami-awadallah/myhelpers":"1.1.x-dev"
         'rule' => \App\Http\Middleware\Rules::class,
     ];
 
-        app/Http/routes.php
+ app/Http/routes.php
 
 
         MyRoute::shareVariables();
         MyRoute::system();
-        
-        
-      	\MyRoute::auth();
-      	group(['prefix'=>cpanel,'middleware'=>'auth'],function(){
-      		get('/', 'Cpanel\HomeController@index','cpanel.home');
-      		get('settings/languages', 'Settings\LangController@index','lang.index');
-      		get('settings/main_settings', 'Settings\MainController@index','main.settings');
-      		post('settings/main_settings', 'Settings\MainController@store','main.settings.store');
-      
-      		post('settings/lang/create', 'Settings\LangController@create','lang.create');
-      		post('settings/lang/{id}/edit', 'Settings\LangController@update','lang.edit');
-      		post('settings/lang/update_files', 'Settings\LangController@updateFiles','lang.updateFiles');
-      		post('settings/lang/flug', 'Settings\LangController@updateFlug','lang.updateFlug');
-      		post('settings/lang/delete', 'Settings\LangController@deleteLang','lang.deleteLang');
-      	});
 
-        Auth::routes();
+
+        \MyRoute::auth();
+        group(['prefix'=>admin,'middleware'=>'auth'],function(){
+
+        /* Language Route design */
+           resource('langs', 'Backend\LangController', 'admin.langs');
+           Route::post('admin/langs/store', array('as'=>'store_langs' ,'uses'=>'Backend\LangController@store') );
+           Route::post('admin/langs', array('as' => 'update_file' , 'uses' => 'Backend\LangController@updateFiles'));
+
+        /* Settings Route design */
+           resource('settings', 'Backend\SettingsController','admin.settings');
+
+        /* Go to Admin Route design */
+           get('/', 'Backend\HomeController@index','admin.index');
+
+           /* Language changing Route design */
+           get('backend/main_settings', 'Backend\SettingsController@index','main.settings');
+
+           /* Users Route design */
+           resource('users', 'Backend\UserController','admin.users');
+
+       
+          });
+
+Auth::routes();
 
         ...
 
