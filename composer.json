@@ -1,6 +1,6 @@
 {
     "name": "rami-awadallah/myhelpers",
-    "description": "Owlcms with multi language helpers function & Theming system",
+    "description": "Owlcms with multi language helpers function, Theming system & Users system ",
     "type":"Library",
     "License":"MIT",
     "authors": [
