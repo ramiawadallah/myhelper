@@ -6,21 +6,25 @@
 
 ?>
 @if(!empty($attr))
+	<div class="col-md-4 col-xs-12">
+		<a href="{{ $href }}" 
+			@foreach($attr as $key => $value)
+			{{ $key }}="{{ $value }}" &nbsp
 
-	<a href="{{ $href }}" 
+			@endforeach
 
-	@foreach($attr as $key => $value)
-	{{ $key }}="{{ $value }}" &nbsp
-
-	@endforeach
-
-	>
-	<i class="fa fa-eye fa-fw "></i> 
-	{{ trans('lang.view') }}</a>
-
+			class="btn btn-info btn-sm btn-icon icon-left"
+			>
+			<i class="entypo-info"></i> 
+			{{ trans('lang.view') }}
+		</a>
+	</div>
 @else
-	<a href="{{ $href }}" title="{{ trans('lang.view') }}" class="fa fa-eye fa-lg"></a>
-
+	<div class="col-md-4 col-xs-12 btn" >
+		<a href="{{ $href }}" title="{{ trans('lang.view') }}" class="btn btn-info btn-sm btn-icon icon-left btn-block">
+		<i class="entypo-info"></i> 
+		{{ trans('lang.view') }}</a>
+	</div>
 @endif
 
 

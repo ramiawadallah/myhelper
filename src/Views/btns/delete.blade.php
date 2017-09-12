@@ -21,32 +21,35 @@ if(!empty($name))
 		$url = url()->current();
 	}
 
-		
-
 ?>
-
-
 
 @if(is_array($options))
 
-<a msg="{{trans('lang.delete_msg',['var'=>$name])}}" url="{{ $url }}" href="javascript:;" title="{{trans('lang.delete')}}" 
+<div class="col-md-4 col-xs-12 btn">
+{{ Form::open(['url' => [$url], 'method' => 'DELETE']) }}
+		<button type="submit" class="btn btn-danger btn-sm btn-icon icon-left btn-block" onclick="return confirm('{{trans('lang.delete_msg',['var'=>$name])}}')"
 
-	@foreach($options as $key => $value)
-		@if ($key != 'url')
-			{{ $key }}="{{ $value }}" &nbsp
-		@endif
-	@endforeach
-	class="btn-delete"
->
-     <i class="fa fa-trash"></i>
-    </a>
+			@foreach($options as $key => $value)
+				@if ($key != 'url')
+					{{ $key }}="{{ $value }}" &nbsp
+				@endif
+			@endforeach
+			class="btn-default"
 
-
+		>
+            <i class="entypo-cancel"></i>{{ trans('lang.delete') }}</button>
+        </div>
+{{Form::close()}}
+</div>
 @else
-	<a msg="{{trans('lang.delete_msg',['var'=>$name])}}" url="{{ $url }}" href="javascript:;" title="{{trans('lang.delete')}}" class="btn-delete">
-    <i class="fa fa-trash fa-lg"></i>
+<div class="col-md-4 col-xs-12 btn">
+{{ Form::open(['url' => [$url], 'method' => 'DELETE']) }}
+		<button type="submit" class="btn btn-danger btn-sm btn-icon btn-block icon-left" onclick="return confirm('{{trans('lang.delete_msg',['var'=>$name])}}')">
+            <i class="entypo-cancel"></i>{{ trans('lang.delete') }}</button>
+        </div>
+{{Form::close()}}
+</div>
 
-    </a>
 @endif
 
 

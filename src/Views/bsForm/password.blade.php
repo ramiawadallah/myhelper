@@ -13,7 +13,7 @@
 	<i class="fa fa-warning tooltips" data-original-title="{{ $errors->first($name) }}"></i>
    @endif
    {!! Form::password($name,array_merge([
-   	'class'=>'form-control',
+   	'class'=>'form-control input-lg',
    	'placeholder' => trans('lang.'.$name)
    	],$attributes)) !!}
    
