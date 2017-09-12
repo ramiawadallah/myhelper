@@ -1,6 +1,6 @@
 {
     "name": "rami-awadallah/myhelpers",
-    "description": "هذه الحزمة خاصة باطار عمل لارافل حيث تضيف خاصية التحكم باللغات وبعض الدوال المساعدة",
+    "description": "Owlcms with multi language helpers function & Theming system",
     "type":"Library",
     "License":"MIT",
     "authors": [
