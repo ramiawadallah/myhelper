@@ -13,8 +13,8 @@
         <!-- Styles -->
         <style>
             html, body {
-                background-color: #fff;
-                color: #636b6f;
+                background-color: black;
+                color: #fff;
                 font-family: 'Raleway', sans-serif;
                 font-weight: 100;
                 height: 100vh;
@@ -46,7 +46,7 @@
             }
 
             .title {
-                font-size: 84px;
+                font-size: 5em;
             }
 
             .links > a {
@@ -72,14 +72,21 @@
                         <a href="{{ url('/home') }}">Home</a>
                     @else
                         <a href="{{ url('/login') }}">Login</a>
-                        <a href="{{ url('/register') }}">Register</a>
+                        <a href="{{ url('register') }}">Register</a>
                     @endif
                 </div>
             @endif
 
             <div class="content">
+            
+                <a href="{{ url('/') }}" class="logo">
+                    <img src="{{ theme('images/logo.png') }}" width="30%" alt="" />
+                </a>
+                    
+
                 <div class="title m-b-md">
                     OWLCMS - By Rami Awadallah
+                    <br>
                     <small>HELPER LANGUAGE FUNCTION</small>
                 </div>
 

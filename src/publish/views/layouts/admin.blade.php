@@ -367,8 +367,18 @@
 									{{ Auth::user()->name }} | 
 								</a>
 
-								<a class="entypo-logout right" href="{{ url('/logout') }}"> {{ trans('lang.logout') }}</a>
+								
 
+                                 <a class="entypo-logout right"  href="{{ route('logout') }}"
+                                    onclick="event.preventDefault();
+                                             document.getElementById('logout-form').submit();">
+                                    {{ trans('lang.logout') }}
+                                </a>
+
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                    {{ csrf_field() }}
+                                </form>
+ 
 								<ul class="dropdown-menu">
 				
 									<!-- Reverse Caret -->
