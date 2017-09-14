@@ -1,84 +1,115 @@
-@extends('layouts.admin')
-@section('title') {{ trans('lang.dashbord') }}  @endsection
+@extends('layouts.auth')
+@section('title') Regestration @endsection
 @section('content')
-    <!-- Profile Info and Notifications -->
-        <hr/>   
 
-        <div class="row">
-            <div class="col-sm-3 col-xs-6">
+<div class="login-container">
+    
+    <div class="login-header login-caret">
         
-                <div class="tile-stats tile-red">
-                    <div class="icon"><i class="entypo-users"></i></div>
-                    <div class="num" data-start="0" data-end="{{ App\User::count() }}" data-postfix="" data-duration="1500" data-delay="0">0</div>
-        
-                    <h3>Registered users</h3>
-                    <p>website.</p>
-                </div>
-        
-            </div>
-        
-            <div class="col-sm-3 col-xs-6">
-        
-                <div class="tile-stats tile-green">
-                    <div class="icon"><i class="entypo-doc-text"></i></div>
-                    <div class="num" data-start="0" data-end="" data-postfix="" data-duration="1500" data-delay="600">0</div>
-        
-                    <h3>Post</h3>
-                    <p>this is the post number</p>
-                </div>
-        
-            </div>
+        <div class="login-content">
             
-            <div class="clear visible-xs"></div>
-        
-            <div class="col-sm-3 col-xs-6">
-        
-                <div class="tile-stats tile-aqua">
-                    <div class="icon"><i class="entypo-home"></i></div>
-                    <div class="num" data-start="0" data-end="" data-postfix="" data-duration="1500" data-delay="1200">0</div>
-        
-                    <h3>Page</h3>
-                    <p>this is the page number</p>
-                </div>
-        
-            </div>
-        
-            <div class="col-sm-3 col-xs-6">
-        
-                <div class="tile-stats tile-blue">
-                    <div class="icon"><i class="entypo-rss"></i></div>
-                    <div class="num" data-start="0" data-end="52" data-postfix="" data-duration="1500" data-delay="1800">0</div>
-        
-                    <h3>Subscribers</h3>
-                    <p>on our site right now.</p>
-                </div>
-        
+            <a href="index.html" class="logo">
+                <img src="{{ theme('images/logo.png') }}" width="190" alt="" />
+            </a>
+            
+            <p class="">Create an account, it's free and takes few moments only!</p>
+            
+            <!-- progress bar indicator -->
+            <div class="login-progressbar-indicator">
+                <h3>43%</h3>
+                <span>logging in...</span>
             </div>
         </div>
+        
+    </div>
 
-        <hr/>
+<div class="login-form">
+    <div class="login-content">
+        <form  class="form-horizontal" role="form" method="POST" action="{{ url('/register') }}">
+                        {{ csrf_field() }}
 
-        <div class="col-xs-12">
-            <h3>Online Users!</h3>
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Email</th>
-                        <th>Online</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach($users as $user)
-                        <tr>
-                            <td>{{ $user->name }} </td>
-                            <td>{{ $user->email }} </td>
-                            <td><i class="entypo-users ico"></i><i class="entypo-users"></i> </td>
-                        </tr>   
-                    @endforeach()
-                </tbody>
-            </table>
-            {{ $users->render() }}
-        </div>
+                        <div class="form-group"{{ $errors->has('name') ? ' has-error' : '' }}>
+                            <div class="input-group">
+                                <div class="input-group-addon">
+                                    <i class="entypo-user"></i>
+                                </div>
+                                <input placeholder="Full name" type="text" class="form-control" name="name" value="{{ old('name') }}">
+                            </div>
+                            @if ($errors->has('name'))
+                                <span class="help-block" style="margin-left:-85px;">
+                                    <strong>{{ $errors->first('name') }}</strong>
+                                </span>
+                            @endif
+                        </div>
 
-@endsection()
+                        <div class="form-group"{{ $errors->has('email') ? ' has-error' : '' }}>
+                            <div class="input-group">
+                                <div class="input-group-addon">
+                                    <i class="entypo-mail"></i>
+                                </div>
+                                <input placeholder="Email Address" type="email" class="form-control" name="email" value="{{ old('email') }}">
+                            </div>
+                            @if ($errors->has('email'))
+                                <span class="help-block" style="margin-left:-85px;">
+                                    <strong>{{ $errors->first('email') }}</strong>
+                                </span>
+                            @endif
+                        </div>
+
+
+                        <div class="form-group"{{ $errors->has('phone') ? ' has-error' : '' }}>
+                            <div class="input-group">
+                                <div class="input-group-addon">
+                                    <i class="entypo-phone"></i>
+                                </div>
+                                <input placeholder="Phone Number" type="phone" class="form-control" name="phone" value="{{ old('phone') }}">
+                            </div>
+                            @if ($errors->has('phone'))
+                                <span class="help-block" style="margin-left:-85px;">
+                                    <strong>{{ $errors->first('phone') }}</strong>
+                                </span>
+                            @endif
+                        </div>
+
+
+                        <div class="form-group"{{ $errors->has('password') ? ' has-error' : '' }}>
+                            <div class="input-group">
+                                <div class="input-group-addon">
+                                    <i class="entypo-lock"></i>
+                                </div>
+                                <input placeholder="Password" type="password" class="form-control" name="password" value="{{ old('password') }}">
+                            </div>
+                            @if ($errors->has('password'))
+                                <span class="help-block" style="margin-left:-85px;">
+                                    <strong>{{ $errors->first('password') }}</strong>
+                                </span>
+                            @endif
+                        </div>
+
+                        <div class="form-group"{{ $errors->has('password_confirmation') ? ' has-error' : '' }}>
+                            <div class="input-group">
+                                <div class="input-group-addon">
+                                    <i class="entypo-lock"></i>
+                                </div>
+                                <input placeholder="Password Confirmation" type="password" class="form-control" name="password_confirmation">
+                            </div>
+                            @if ($errors->has('password_confirmation'))
+                                <span class="help-block" style="margin-left:-85px;">
+                                    <strong>{{ $errors->first('password_confirmation') }}</strong>
+                                </span>
+                            @endif
+                        </div>
+
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary btn-block btn-login">
+                                <i class="entypo-login"></i>
+                                {{ trans('lang.enter') }}
+                            </button>
+                        </div>
+        </form>
+    </div>
+</div>
+
+
+
+@endsection

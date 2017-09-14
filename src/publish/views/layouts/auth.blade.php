@@ -10,7 +10,7 @@
 
 	<link rel="icon" href="{{ theme('images/favicon-96x96.png') }}">
 
-	<title>OwlcmsCMS | {{ trans('lang.login') }}</title>
+	<title>OwlcmsCMS | @yield('title')</title>
 
 	<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Noto+Sans:400,700,400italic">
 

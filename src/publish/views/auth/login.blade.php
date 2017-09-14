@@ -1,4 +1,5 @@
-@extends('layouts.login')
+@extends('layouts.auth')
+@section('title') Login @endsection
 @section('content')
 
 <!-- This is needed when you send requests via Ajax -->
@@ -31,8 +32,8 @@ var baseurl = '';
             
             <form class="form-horizontal" dir="{{ getDir() }}" role="form" method="POST" action="{{ url('/login') }}">
                 {{ csrf_field() }}
-                <div class="form-group">
-                    
+
+                <div class="form-group"{{ $errors->first('email') }}>
                     <div class="input-group">
                         <div class="input-group-addon">
                             <i class="entypo-user"></i>
@@ -46,8 +47,7 @@ var baseurl = '';
                     @endif
                 </div>
                 
-                <div class="form-group">
-                    
+                <div class="form-group"{{ $errors->first('password') }}>
                     <div class="input-group">
                         <div class="input-group-addon">
                             <i class="entypo-key"></i>
