@@ -73,7 +73,7 @@
 						<tr>
 							<td>{{ $user->name }} </td>
 							<td>{{ $user->email }} </td>
-							<td><i class="entypo-users ico"></i><i class="entypo-users"></i> </td>
+							<td>@if($user->isOnline())<i class="entypo-users ico"></i>@else <i class="entypo-users"></i> @endif() </td>
 						</tr>	
 					@endforeach()
 				</tbody>
