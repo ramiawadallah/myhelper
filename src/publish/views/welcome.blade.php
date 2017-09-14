@@ -79,7 +79,8 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel
+                    OWLCMS - By Rami Awadallah
+                    <small>HELPER LANGUAGE FUNCTION</small>
                 </div>
 
                 <div class="links">
