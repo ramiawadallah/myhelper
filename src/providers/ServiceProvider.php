@@ -48,7 +48,7 @@ class ServiceProvider extends Provider
         ], 'helpers');
 
         $this->publishes([
-        __DIR__.'/../publish/config/cms.php' => base_path('config/cms')
+        __DIR__.'/../publish/config/cms.php' => base_path('config/cms.php')
         ], 'cms');
 
 
