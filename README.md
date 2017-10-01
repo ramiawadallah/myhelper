@@ -39,12 +39,14 @@ app/Http/Kernel.php
         'web' => [
             ...
             \App\Http\Middleware\LocaleMiddleware::class,
+            \App\Http\Middleware\LogUserActivity::class,
         ],
 
       protected $routeMiddleware = [
         ...
         'maintenance' => \App\Http\Middleware\maintenance::class,
         'rule' => \App\Http\Middleware\Rules::class,
+        'locale' => \App\Http\Middleware\Local::class,
     ];
 
 app/Http/routes.php
