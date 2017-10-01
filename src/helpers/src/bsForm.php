@@ -40,6 +40,11 @@ class bsForm
         return view('Helper::bsForm.url',compact('name','value','attributes'))->render();
     }
 
+    public static function uri($name,$value=null,$attributes=null)
+    {
+        return view('Helper::bsForm.uri',compact('name','value','attributes'))->render();
+    }
+
     public static function password($name,$attributes=null)
     {
     	return view('Helper::bsForm.password',compact('name','attributes'))->render();
