@@ -9,13 +9,10 @@ class bsForm
     	return view('Helper::bsForm.start',compact('attributes'))->render();
     } 
 
-
-
     public static function end($options=null)
     {
     	return view('Helper::bsForm.end',compact('options'))->render();
     } 
-
 
 
     public static function text($name,$value=null,$attributes=null)
