@@ -75,7 +75,7 @@
         <br>
     </div>
 
-    <div class="col-md-12">
+    <div style="margin-bottom: 50px !important; margin-top: 30px !important;" class="col-md-12">
         <button type="submit" class="btn btn-lg btn-success btn-block">{{ trans('lang.save')}}</button>
     </div>
 @endsection
