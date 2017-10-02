@@ -78,7 +78,7 @@
 					@endforeach()
 				</tbody>
 			</table>
-			{{ $users->links('layouts.pagination.default') }}
+			{{ $users->links('layouts.pagination.pag') }}
 		</div>
 
 @endsection()

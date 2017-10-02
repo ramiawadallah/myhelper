@@ -5,6 +5,8 @@ config\app.php  --> providers array
         Collective\Html\HtmlServiceProvider::class,
         DaveJamesMiller\Breadcrumbs\ServiceProvider::class,
         RamiAwadallah\Helpers\ServiceProvider::class,
+        Lewis\Presenter\PresenterServiceProvider::class,
+        Baum\Providers\BaumServiceProvider::class,
 
 
 config\app.php  --> aliases array
@@ -53,38 +55,41 @@ app/Http/routes.php
 
 
         MyRoute::shareVariables();
-        MyRoute::system();
+MyRoute::system();
 
 
-        \MyRoute::auth();
-        group(['prefix'=>admin,'middleware'=>'auth'],function(){
+    \MyRoute::auth();
+    group(['prefix'=>admin,'middleware'=>'auth'],function(){
 
-        /* Language Route design */
-           resource('langs', 'Backend\LangController', 'admin.langs');
-           Route::post('admin/langs/store', array('as'=>'store_langs' ,'uses'=>'Backend\LangController@store') );
-           Route::post('admin/langs', array('as' => 'update_file' , 'uses' => 'Backend\LangController@updateFiles'));
+    /* Language Route design */
+    resource('langs', 'Backend\LangController', 'admin.langs');
+    Route::post('admin/langs/store', array('as'=>'store_langs' ,'uses'=>'Backend\LangController@store') );
+    Route::post('admin/langs', array('as' => 'update_file' , 'uses' => 'Backend\LangController@updateFiles'));
 
-        /* Settings Route design */
-           resource('settings', 'Backend\SettingsController','admin.settings');
+    /* Settings Route design */
+    resource('settings', 'Backend\SettingsController','admin.settings');
 
-        /* Settings Route design */
-           resource('users', 'Backend\UsersController','admin.usesrs');
+    /* Settings Route design */
+    resource('users', 'Backend\UsersController','admin.usesrs');
 
-        /* Go to Admin Route design */
-           get('/', 'Backend\HomeController@index','admin.index');
+    /* Go to Admin Route design */
+    get('/', 'Backend\HomeController@index','admin.index');
 
-           /* Language changing Route design */
-           get('backend/main_settings', 'Backend\SettingsController@index','main.settings');
+    /* Language changing Route design */
+    get('backend/main_settings', 'Backend\SettingsController@index','main.settings');
 
-           /* Users Route design */
-           resource('users', 'Backend\UserController','admin.users');
+    /* Users Route design */
+    resource('users', 'Backend\UserController','admin.users');
 
-       
-          });
+    /* Pages Route design */
+    resource('pages', 'Backend\PageController', 'admin.pages');
 
-        Auth::routes();
 
-        ...
+    });
+
+    Auth::routes();
+
+    ...
 
 database/seeds/DatabaseSeeder.php
 
@@ -99,11 +104,11 @@ database/seeds/DatabaseSeeder.php
 
 Add this to AppServiceProvider
 
-      use Illuminate\Support\Facades\Schema; 
+      //use Illuminate\Support\Facades\Schema; 
       use App\View\ThemeViewFinder;
 
       public function boot(){
-          Schema::defaultStringLength(191);
+          //Schema::defaultStringLength(191);
           $this->app['view']->setFinder($this->app['theme.finder']);
           $this->app['view']->composer('layouts.home', Composers\InjectPages::class);
       }
