@@ -13,8 +13,7 @@
     "require": {
         "laravelcollective/html": "^5.3",
         "davejamesmiller/laravel-breadcrumbs": "^3.0",
-        "baum/baum": "~1.1",
-        "lewis/presenter":"dev-master"
+        "baum/baum": "~1.1"
     },
     "autoload": {
         "psr-4": {
