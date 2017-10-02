@@ -1,4 +1,4 @@
-composer require "rami-awadallah/myhelpers":"1.1.x-dev"
+composer require "rami-awadallah/myhelpers":"1.3.x-dev"
    
 config\app.php  --> providers array
 
