@@ -54,9 +54,8 @@ app/Http/Kernel.php
 app/Http/routes.php
 
 
-        MyRoute::shareVariables();
-MyRoute::system();
-
+     MyRoute::shareVariables();
+     MyRoute::system();
 
     \MyRoute::auth();
     group(['prefix'=>admin,'middleware'=>'auth'],function(){
