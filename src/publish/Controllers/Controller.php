@@ -21,4 +21,9 @@ if (trait_exists('Illuminate\Foundation\Validation\HelperValidatesRequests'))
 class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, CallValidatesRequests;
+<<<<<<< HEAD
 }
+=======
+}
+
+>>>>>>> e583357dbc48701e61c1e44a3cb1aea28ffdcbca

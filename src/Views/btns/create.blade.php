@@ -1,10 +1,8 @@
 <?php 
 
 	$href = !empty($url) ? $url : url()->current().'/create';
-
-		
-
 ?>
+
 @if(!empty($attr))
 
 	<a href="{{ $href }}" 
@@ -15,7 +13,7 @@
 	@endforeach
 
 	>
-	<i class="fa fa-plus fa-fw "></i> 
+	<i class="fa fa-plus fa-fw"></i> 
 	{{ trans('lang.create') }}</a>
 
 @else

@@ -35,6 +35,21 @@ class ServiceProvider extends Provider
         __DIR__.'/../publish/Controllers/' => app_path('Http/Controllers')
         ], 'controller');
 
+        $this->publishes([
+        __DIR__.'/../publish/Template/' => app_path('Template')
+        ], 'template');
+
+        $this->publishes([
+        __DIR__.'/../publish/View/' => app_path('View')
+        ], 'view');
+
+        $this->publishes([
+        __DIR__.'/../publish/Helpers/' => app_path('Helpers')
+        ], 'helpers');
+
+        $this->publishes([
+        __DIR__.'/../publish/config/cms.php' => base_path('config/cms.php')
+        ], 'cms');
 
 
         $this->publishes([

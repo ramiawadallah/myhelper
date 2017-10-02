@@ -19,7 +19,7 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->string('phone');
             $table->enum('rule',['admin','editor','user']);
-            $table->text('info');
+            $table->text('info')->nullable();
             $table->enum('gender',['male','female']);
             $table->rememberToken();
             $table->timestamps();

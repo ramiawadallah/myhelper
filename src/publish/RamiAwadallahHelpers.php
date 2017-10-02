@@ -6,21 +6,20 @@ return [
 	*/
 	// System Defines 
 	'defines' => [
-		'cp' => 'adminpanel/',
-		'cpanel' => 'adminpanel',
-		'upload_path' => public_path('upload').'/',
-		'IMG' => url('public/assets/cpanel/img').'/',
-		'upload_url' => url('public/upload').'/',
-		'flugs_url' => url('public/assets/cpanel/img/settings/flags').'/',
-		'flugs_path' => public_path('assets/cpanel/img/settings/flags').'/',
-
+		'cp' => 'admin/',
+		'admin' => 'admin',
+		'upload_path' => public_path('uploads').'/',
+		'IMG' => url('uploads').'/',
+		'upload_url' => url('uploads').'/',
+		'flugs_url' => theme('images/flags').'/',
+		'flugs_path' => public_path('themes/default/assets/cms/images/flags').'/',
 	],
 
 	// View Variables
 	'viewShareVariables' => [
-		'cpanel' => url('public/assets/cpanel').'/',
-		'logo' => url('public/assets/cpanel/img/logo.png'),
-		'icon' => url('public/assets/cpanel/img/favicon.png'),
+		'cpanel'  => url('themes/default/assets/cms').'/',
+		'logo'   => url('/themes/default/assets/cms/images/logo.png'),
+		'icon'   => url('/themes/default/assets/cms/images/favicon.png'),
 	],
 
 

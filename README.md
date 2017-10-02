@@ -1,13 +1,13 @@
-composer require "rami-awadallah/myhelpers":"@dev"
+composer require "rami-awadallah/myhelpers":"1.1.x-dev"
    
-   config\app.php  --> providers array
+config\app.php  --> providers array
 
         Collective\Html\HtmlServiceProvider::class,
         DaveJamesMiller\Breadcrumbs\ServiceProvider::class,
         RamiAwadallah\Helpers\ServiceProvider::class,
 
 
-  config\app.php  --> aliases array
+config\app.php  --> aliases array
   
         'Form' => Collective\Html\FormFacade::class,
         'Html' => Collective\Html\HtmlFacade::class,
@@ -19,12 +19,11 @@ composer require "rami-awadallah/myhelpers":"@dev"
         'Control' => RamiAwadallah\Helpers\Src\Control::class,
         'Breadcrumbs' => DaveJamesMiller\Breadcrumbs\Facade::class,
 
- publish vendor 
  
          php artisan vendor:publish --force
 
 
-   app\Console\Kernel.php
+app\Console\Kernel.php
 
     protected $commands = [
         ...
@@ -33,44 +32,61 @@ composer require "rami-awadallah/myhelpers":"@dev"
     ];
 
     
- app/Http/Kernel.php
+app/Http/Kernel.php
 
 
        protected $middlewareGroups = [
         'web' => [
             ...
             \App\Http\Middleware\LocaleMiddleware::class,
+            \App\Http\Middleware\LogUserActivity::class,
         ],
 
       protected $routeMiddleware = [
         ...
         'maintenance' => \App\Http\Middleware\maintenance::class,
         'rule' => \App\Http\Middleware\Rules::class,
+        'locale' => \App\Http\Middleware\Local::class,
     ];
 
-   app/Http/routes.php
+app/Http/routes.php
 
 
         MyRoute::shareVariables();
         MyRoute::system();
-        
-        
-      	\MyRoute::auth();
-      	group(['prefix'=>cpanel,'middleware'=>'auth'],function(){
-      		get('/', 'Cpanel\HomeController@index','cpanel.home');
-      		get('settings/languages', 'Settings\LangController@index','lang.index');
-      		get('settings/main_settings', 'Settings\MainController@index','main.settings');
-      		post('settings/main_settings', 'Settings\MainController@store','main.settings.store');
-      
-      		post('settings/lang/create', 'Settings\LangController@create','lang.create');
-      		post('settings/lang/{id}/edit', 'Settings\LangController@update','lang.edit');
-      		post('settings/lang/update_files', 'Settings\LangController@updateFiles','lang.updateFiles');
-      		post('settings/lang/flug', 'Settings\LangController@updateFlug','lang.updateFlug');
-      		post('settings/lang/delete', 'Settings\LangController@deleteLang','lang.deleteLang');
-      	});
+
+
+        \MyRoute::auth();
+        group(['prefix'=>admin,'middleware'=>'auth'],function(){
+
+        /* Language Route design */
+           resource('langs', 'Backend\LangController', 'admin.langs');
+           Route::post('admin/langs/store', array('as'=>'store_langs' ,'uses'=>'Backend\LangController@store') );
+           Route::post('admin/langs', array('as' => 'update_file' , 'uses' => 'Backend\LangController@updateFiles'));
+
+        /* Settings Route design */
+           resource('settings', 'Backend\SettingsController','admin.settings');
+
+        /* Settings Route design */
+           resource('users', 'Backend\UsersController','admin.usesrs');
+
+        /* Go to Admin Route design */
+           get('/', 'Backend\HomeController@index','admin.index');
+
+           /* Language changing Route design */
+           get('backend/main_settings', 'Backend\SettingsController@index','main.settings');
+
+           /* Users Route design */
+           resource('users', 'Backend\UserController','admin.users');
+
+       
+          });
+
+        Auth::routes();
+
         ...
 
-   database/seeds/DatabaseSeeder.php
+database/seeds/DatabaseSeeder.php
 
     public function run()
     {
@@ -81,17 +97,47 @@ composer require "rami-awadallah/myhelpers":"@dev"
         
     }
 
-    
-       composer dump-autoload
- 
-       php artisan migrate --seed
+Add this to AppServiceProvider
 
-بعد الانتهاء من الخطوات السابقة ادخل على رابط 
+      use Illuminate\Support\Facades\Schema; 
+      use App\View\ThemeViewFinder;
 
-  adminpanel 
+      public function boot(){
+          Schema::defaultStringLength(191);
+          $this->app['view']->setFinder($this->app['theme.finder']);
+          $this->app['view']->composer('layouts.home', Composers\InjectPages::class);
+      }
+
+
+      public function register(){
+          $this->app->singleton('theme.finder', function ($app) {
+              $finder = new ThemeViewFinder($app['files'], $app['config']['view.paths']);
+
+              $config = $app['config']['cms.theme'];
+
+              $finder->setBasePath($app['path.public'].'/'.$config['folder']);
+              $finder->setActiveTheme($config['active']);
+
+              return $finder;
+          });
+      }
   
-وقم بتسجيل الدخول  بهذا الحساب
+  In the composer add this code in the outload files
 
-  user : alfurat.eg@gmail.com
+      "files" : [
+            "app/Helpers/helpers.php"
+      ]
+
+    composer dump-autoload
+
+    php artisan migrate --seed
+
+    بعد الانتهاء من الخطوات السابقة ادخل على رابط 
+
+  admin
+  
+  وقم بتسجيل الدخول  بهذا الحساب
+
+  user : admin@owlcms.com
 
   pass : 123456

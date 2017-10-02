@@ -9,26 +9,20 @@ class bsForm
     	return view('Helper::bsForm.start',compact('attributes'))->render();
     } 
 
-
-
     public static function end($options=null)
     {
     	return view('Helper::bsForm.end',compact('options'))->render();
     } 
-
-
 
     public static function text($name,$value=null,$attributes=null)
     {
         return view('Helper::bsForm.text',compact('name','value','attributes'))->render();
     }
 
-
     public static function textarea($name,$value=null,$attributes=null)
     {
     	return view('Helper::bsForm.textarea',compact('name','value','attributes'))->render();
     }
-
 
     public static function number($name,$value=null,$attributes=null)
     {
@@ -38,6 +32,11 @@ class bsForm
     public static function url($name,$value=null,$attributes=null)
     {
         return view('Helper::bsForm.url',compact('name','value','attributes'))->render();
+    }
+
+    public static function uri($name,$value=null,$attributes=null)
+    {
+        return view('Helper::bsForm.uri',compact('name','value','attributes'))->render();
     }
 
     public static function password($name,$attributes=null)

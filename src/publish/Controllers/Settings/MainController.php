@@ -41,25 +41,24 @@ class MainController extends Controller
                 ],null,function($request)
                 {
 
-                    if ($request->hasFile('logo')) 
-                    {
-                            $dir     = base_path('public/assets/cpanel/img');
-                            $image = $request->file('logo');
-                            $logo = 'logo.png';
-                            @unlink($dir.'/'.$logo);
-                            $image->move($dir,$logo);
-                    }
-                   
-                    if ($request->hasFile('icon')) 
-                    {
-                            $dir     = base_path('public/assets/cpanel/img');
-                            $image = $request->file('icon');
-                            $icon = 'favicon.png';
-                            @unlink($dir.'/'.$icon);
-                            $image->move($dir,$icon);
-                    }
-                    session()->flash('success',trans('lang.system_updated'));
-
+                   if ($request->hasFile('photo')) 
+            {
+                    $dir     = base_path('public/uploades/');
+                    $image = $request->file('photo');
+                    $logo = 'logo.png';
+                    @unlink($dir.'/'.$logo);
+                    $image->move($dir,$logo);
+            }
+           
+            if ($request->hasFile('icon')) 
+            {
+                    $dir     = base_path('public/assets/cpanel/img');
+                    $image = $request->file('icon');
+                    $icon = 'favicon.png';
+                    @unlink($dir.'/'.$icon);
+                    $image->move($dir,$icon);
+            }
+            session()->flash('success',trans('lang.system_updated'));
                 });
         
 		
