@@ -11,11 +11,7 @@
     ],
     "minimum-stability": "dev",
     "require": {
-<<<<<<< HEAD
         "laravelcollective/html": "^5.3",
-=======
-        "laravelcollective/html": "^5.4",
->>>>>>> e583357dbc48701e61c1e44a3cb1aea28ffdcbca
         "davejamesmiller/laravel-breadcrumbs": "^3.0"
     },
     "autoload": {
