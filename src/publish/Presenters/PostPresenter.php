@@ -2,7 +2,7 @@
 
 namespace App\Presenters;
 
-use Lewis\Presenter\AbstractPresenter;
+use Stylish\Presenter\AbstractPresenter;
 use League\CommonMark\CommonMarkConverter;
 
 class PostPresenter extends AbstractPresenter{
