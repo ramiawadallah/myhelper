@@ -11,7 +11,7 @@
     ],
     "minimum-stability": "dev",
     "require": {
-        "laravelcollective/html": "^5.4",
+        "laravelcollective/html": "^5.5",
         "davejamesmiller/laravel-breadcrumbs": "^3.0",
         "baum/baum": "~1.1"
     },
