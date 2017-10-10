@@ -1,11 +1,10 @@
-composer require "rami-awadallah/myhelpers":"1.3.x-dev"
+composer require "rami-awadallah/myhelpers":"1.4.x-dev"
    
 config\app.php  --> providers array
 
         Collective\Html\HtmlServiceProvider::class,
         DaveJamesMiller\Breadcrumbs\ServiceProvider::class,
         RamiAwadallah\Helpers\ServiceProvider::class,
-        Lewis\Presenter\PresenterServiceProvider::class,
         Baum\Providers\BaumServiceProvider::class,
 
 
