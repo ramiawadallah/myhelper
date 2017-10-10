@@ -5,7 +5,6 @@ config\app.php  --> providers array
         Collective\Html\HtmlServiceProvider::class,
         DaveJamesMiller\Breadcrumbs\ServiceProvider::class,
         RamiAwadallah\Helpers\ServiceProvider::class,
-        Lewis\Presenter\PresenterServiceProvider::class,
         Baum\Providers\BaumServiceProvider::class,
 
 
