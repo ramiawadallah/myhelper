@@ -40,11 +40,6 @@ class ServiceProvider extends Provider
         ], 'template');
 
         $this->publishes([
-        __DIR__.'/../publish/Presenters/' => app_path('Presenters')
-        ], 'presenters');
-
-
-        $this->publishes([
         __DIR__.'/../publish/View/' => app_path('View')
         ], 'view');
 
@@ -101,8 +96,6 @@ class ServiceProvider extends Provider
         $this->publishes([
         __DIR__.'/../publish/bootstrap3.blade.php' => base_path('vendor/davejamesmiller/laravel-breadcrumbs/views/bootstrap3.blade.php')
         ], 'bootstrap3');
-
-
 
     }
     public function allFilesInPath($path)
