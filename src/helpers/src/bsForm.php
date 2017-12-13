@@ -44,7 +44,6 @@ class bsForm
     	return view('Helper::bsForm.password',compact('name','attributes'))->render();
     }
 
-
     public static function email($name,$value=null,$attributes=null)
     {
         return view('Helper::bsForm.email',compact('name','value','attributes'))->render();
