@@ -1,4 +1,3 @@
-
 <?php
 
 namespace Illuminate\Database\Eloquent;
@@ -23,7 +22,6 @@ if (trait_exists('RamiAwadallah\Helpers\Relation\RelationMethods'))
         use \RamiAwadallah\Helpers\Relation\RelationMethods;
     }
 }else{
-
     trait call_relation_helpers{}
 }
 
